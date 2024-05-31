@@ -2,6 +2,12 @@ Milestone 1
 Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
 Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
 
+SCOMPOSIZIONE MILESTONE 1:
+- creazione di uno schema stilizzato su iPad della parte gafica della pagina, individuando eventuali classi in comune caratteristiche particolari ecc....
+- all'interno del contenitore che si trova a sinistra della chat creare un v-for per la visualizzazione dei contatti. 
+
+
+
 Milestone 2
 Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 Click sul contatto mostra la conversazione del contatto cliccato
