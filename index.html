@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,15 +18,15 @@
         <div class="background">
             <section class="header-background-bar"></section>
         </div>
-        <!--main web-app -->
+        <!-- main web-app -->
         <main class="container">
-            <!--sidebar con un header del profilo e la lista dei contatti -->
+            <!-- sidebar con un header del profilo e la lista dei contatti -->
             <section class="webapp">
                 <section class="sidebar">
                     <div class="profile sticky">
                         <div class="profile-io">
-                            <img src="./img 3/avatar_io.jpg" alt="immagine-io" class="img-header"> 
-                            <p>Sofia</p> 
+                            <img src="./img 3/avatar_io.jpg" alt="immagine-io" class="img-header">
+                            <p>Sofia</p>
                         </div>
                         <ul class="ul-header">
                             <i class="fa-solid fa-rotate-right"></i>
@@ -34,22 +34,27 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </ul>
                     </div>
-                    <div class="contacts">
+                    <div class="search sticky">
                         <input type="text" placeholder="Cerca o inizia una nuova chat">
-                        <ul class="contacts-list">
-                            <li v-for="(contact, index) in contacts" :key="index" @click="selectContact(index)" class="contact-dimention">
-                                <img :src="contact.avatar" :alt="contact.name" class="img-header">
-                                <span>{{ contact.name }}</span>
-                            </li>
-                        </ul>
                     </div>
+                    <div class="notifiche-deckstop">
+                        <div class="bell-container">
+                           <i class="fa-solid fa-bell-slash"></i> 
+                        </div>
+                    </div>
+                    <ul class="contacts-list">
+                        <li v-for="(contact, index) in contacts" :key="index" @click="selectContact(index)" class="contact-dimension">
+                            <img :src="contact.avatar" :alt="contact.name" class="img-header">
+                            <span>{{ contact.name }}</span>
+                        </li>
+                    </ul>
                 </section>
-                <!--section della chat con: header con nome del contatto, parte centrale di messaggi e input messaggi -->
+                <!-- section della chat con: header con nome del contatto, parte centrale di messaggi e input messaggi -->
                 <section class="chat">
-                    <div class="profile sticky">
+                    <div class="chat-header sticky">
                         <div class="profile-io">
-                            <img :src="contacts[currentContactIndex].avatar" alt="immagine-contatto" class="img-header"> 
-                            <p>{{ contacts[currentContactIndex].name }}</p> 
+                            <img :src="contacts[currentContactIndex].avatar" alt="immagine-contatto" class="img-header">
+                            <p>{{ contacts[currentContactIndex].name }}</p>
                         </div>
                         <ul class="ul-header">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -57,18 +62,15 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </ul>
                     </div>
-                    <section class="dispaly-column">
-                        <div class="messages">
+                    <div class="messages">
                         <div v-for="(message, index) in contacts[currentContactIndex].messages" :key="index" :class="['message', message.status]">
                             <span class="message-date">{{ message.date }}</span>
                             <span class="message-text">{{ message.message }}</span>
                         </div>
                     </div>
-                    <div class="input-message">
+                    <div class="input-message sticky">
                         <input type="text" placeholder="Scrivi un messaggio">
                     </div>
-                    </section>
-                    
                 </section>
             </section>
         </main>
@@ -78,3 +80,4 @@
     <script src="./js/script.js"></script>
 </body>
 </html>
+
