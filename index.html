@@ -6,46 +6,75 @@
     <title>Boolzap</title>
     <link rel="stylesheet" href="./css/style.css">
 
-    <!-- link per fonts-->
+    <!-- link per fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- back ground fisso -->
-    <div class="background">
-        <section class="header-background-bar">
-
-        </section>
-
+    <div id="app">
+        <!-- back ground fisso -->
+        <div class="background">
+            <section class="header-background-bar"></section>
+        </div>
+        <!--main web-app -->
+        <main class="container">
+            <!--sidebar con un header del profilo e la lista dei contatti -->
+            <section class="webapp">
+                <section class="sidebar">
+                    <div class="profile sticky">
+                        <div class="profile-io">
+                            <img src="./img 3/avatar_io.jpg" alt="immagine-io" class="img-header"> 
+                            <p>Sofia</p> 
+                        </div>
+                        <ul class="ul-header">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </ul>
+                    </div>
+                    <div class="contacts">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <ul class="contacts-list">
+                            <li v-for="(contact, index) in contacts" :key="index" @click="selectContact(index)" class="contact-dimention">
+                                <img :src="contact.avatar" :alt="contact.name" class="img-header">
+                                <span>{{ contact.name }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!--section della chat con: header con nome del contatto, parte centrale di messaggi e input messaggi -->
+                <section class="chat">
+                    <div class="profile sticky">
+                        <div class="profile-io">
+                            <img :src="contacts[currentContactIndex].avatar" alt="immagine-contatto" class="img-header"> 
+                            <p>{{ contacts[currentContactIndex].name }}</p> 
+                        </div>
+                        <ul class="ul-header">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </ul>
+                    </div>
+                    <section class="dispaly-column">
+                        <div class="messages">
+                        <div v-for="(message, index) in contacts[currentContactIndex].messages" :key="index" :class="['message', message.status]">
+                            <span class="message-date">{{ message.date }}</span>
+                            <span class="message-text">{{ message.message }}</span>
+                        </div>
+                    </div>
+                    <div class="input-message">
+                        <input type="text" placeholder="Scrivi un messaggio">
+                    </div>
+                    </section>
+                    
+                </section>
+            </section>
+        </main>
     </div>
-    <!--main web-app -->
-    <main class="container">
-        <!--sidebar con un header del profilo e la lista dei contatti -->
-        <section class="webapp">
-            <section class="sidebar">
-                <div class="profile">
-    
-                </div>
-                <div class="contacts">
-    
-                </div>
-            </section>
-            <!--section della chat con: header con nome del contatto, parte centrale di messaggi e input messaggi -->
-            <section class="chat">
-                <div class="header-chat">
-    
-                </div>
-                <div class="messages">
-    
-                </div>
-                <div class="input-message">
-    
-                </div>
-            </section>
-        </section>
-    </main>
-    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
