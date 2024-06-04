@@ -167,12 +167,30 @@ createApp({
                     ],
                 }
             ],
-            currentContactIndex: 0
+            currentContactIndex: 0,
+            newMessage:''
         };
     },
     methods: {
         selectContact(index) {
             this.currentContactIndex = index;
+        },
+        addMessage() {
+            if (this.newMessage.trim() !== '') {
+                const currentContact = this.contacts[this.currentContactIndex];
+                currentContact.messages.push({
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = '';
+                
+                setTimeout(() => {
+                    currentContact.messages.push({
+                        message: 'ok',
+                        status: 'received'
+                    });
+                }, 1000);
+            }
         }
     }
 }).mount('#app');

@@ -34,14 +34,23 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </ul>
                     </div>
-                    <div class="search sticky">
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
-                    </div>
-                    <div class="notifiche-deckstop">
+                    <div class="notifiche-deckstop row">
                         <div class="bell-container">
                            <i class="fa-solid fa-bell-slash"></i> 
                         </div>
+                        <div class="column">
+                            <div>
+                                Ricevi notifiche di nuovi messaggi 
+                            </div>
+                            <a href="">Attiva notifiche Deckstop</a>
+                        </div>
                     </div>
+                    <div class="search sticky">
+                        <button>weeee</button>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+
+                    
                     <ul class="contacts-list">
                         <li v-for="(contact, index) in contacts" :key="index" @click="selectContact(index)" class="contact-dimension">
                             <img :src="contact.avatar" :alt="contact.name" class="img-header">
@@ -69,7 +78,7 @@
                         </div>
                     </div>
                     <div class="input-message sticky">
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
                     </div>
                 </section>
             </section>

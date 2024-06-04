@@ -42,6 +42,7 @@ body {
     align-items: start;
     justify-content: flex-start;
     background-color: white;
+    
 }
 
 .sidebar {
@@ -89,7 +90,7 @@ section.sidebar .profile,
 }
 
 .search input {
-    width: calc(100% - 1rem);
+    width: calc(100% - 5rem);
     margin: 0.5rem;
     padding: 0.5rem;
     border: 1px solid #ddd;
@@ -112,6 +113,14 @@ section.sidebar .profile,
     border-radius: 50%;
     
 
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.column{
+    display: flex;
+    flex-direction: column;
 }
 
 .contacts-list {
