@@ -168,8 +168,16 @@ createApp({
                 }
             ],
             currentContactIndex: 0,
-            newMessage:''
+            newMessage:'',
+            search: ''
         };
+    },
+    computed: {
+        filteredContacts() {
+            return this.contacts.filter(contact => 
+                contact.name.toLowerCase().includes(this.search.toLowerCase())
+            );
+        }
     },
     methods: {
         selectContact(index) {
